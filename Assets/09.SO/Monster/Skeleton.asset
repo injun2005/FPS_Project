@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f790a842bc27cf4ca7a7ca9571c2bd4, type: 3}
   m_Name: Skeleton
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 30
   damage: 5
   attackDelay: 2
   MonsterPrebaf: {fileID: 6418900764920549033, guid: df6f97c3f35785a46b686c653f57696a, type: 3}

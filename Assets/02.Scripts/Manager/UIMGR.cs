@@ -12,21 +12,21 @@ public class UIMGR : MonoBehaviour
     public Button optionButton;
     public Button exitButton;
 
-    private UnityAction buttonAction;
 
     private void Start()
     {
-        buttonAction = () => OnStartButtonClick();
-        startButton.onClick.AddListener(buttonAction);
-
-        optionButton.onClick.AddListener(()=> OnButtonClick(optionButton.name));
-
-        exitButton.onClick.AddListener(() => OnButtonClick(exitButton.name));
+        startButton?.onClick.AddListener(OnStartButtonClick);
+        optionButton?.onClick.AddListener(()=> OnButtonClick(optionButton.name));
+        exitButton?.onClick.AddListener(() => OnButtonClick(exitButton.name));
     }
 
-    private void OnStartButtonClick()
+    public void OnStartButtonClick()
     {
         SceneManager.LoadScene("SampleScene");
+    }
+    public void OnTitleButtonClick()
+    {
+        SceneManager.LoadScene("Main");
     }
 
     void OnButtonClick(string buttonName)

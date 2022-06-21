@@ -17,28 +17,6 @@ public class GameMGR : MonoBehaviour
     public UnityEvent OnGameClear;
     private bool _isGameClear =false;
     private bool _isGameOver = false;
-    public bool IsGameOver
-    {
-        get
-        {
-            return _isGameOver;
-        }
-        set
-        {
-            _isGameOver = value;
-        }
-    }
-    private void Update()
-    {
-        if(_isGameOver)
-        {
-            OnGameOver?.Invoke();
-        }
-        if(_isGameClear)
-        {
-            OnGameClear?.Invoke();
-        }
-    }
     private static GameMGR _instance;
     public static GameMGR Instance
     {
@@ -83,7 +61,21 @@ public class GameMGR : MonoBehaviour
         remainMonsterText.text = $"{maxMonster}";
         if(maxMonster <= 0)
         {
-            _isGameClear = true;
+            GameClear();
         }
+    }
+    public void GameOver()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        _isGameOver = true;
+        Time.timeScale = 0f;
+        OnGameOver?.Invoke();
+    }
+    public void GameClear()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        _isGameClear = true;
+        Time.timeScale = 0f;
+        OnGameClear?.Invoke();
     }
 }

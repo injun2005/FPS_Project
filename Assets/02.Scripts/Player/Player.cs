@@ -67,7 +67,7 @@ public class Player : MonoBehaviour, IHittable
         //    monster.SendMessage("OnPlayerDie", SendMessageOptions.DontRequireReceiver);
         //}
 
-        GameMGR.Instance.IsGameOver = true;
+        GameMGR.Instance.GameOver(); 
     }
     public void DisPlayHP()
     {

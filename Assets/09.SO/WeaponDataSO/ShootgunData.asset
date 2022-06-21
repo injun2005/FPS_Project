@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77494f24878daea49ac3508661907e04, type: 3}
+  m_Name: ShootgunData
+  m_EditorClassIdentifier: 
+  _bulletCount: 5
+  _weaponPrefab: {fileID: 4797689919747664995, guid: a7e3cae7700319c4d96714c872281ac0, type: 3}
+  _bulletPrefab: {fileID: 1677800381931236095, guid: 4d574431a1973af4d867add4a0918b7f, type: 3}
+  _hitObstacleEffectPrefab: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e, type: 3}
+  _gunIcon: {fileID: 21300012, guid: 0bd96f6f4899f644ea1ffd9b4735a5e6, type: 3}
+  _damage: 5
+  _attackDelay: 1.5
+  _knockBackForce: 5
+  _fireSFX: {fileID: 8300000, guid: ba27d4123809541d7bc78ffd4d363dd1, type: 3}
+  _isSeries: 0
+  _infitiniteAmmo: 0
+  _attackRange: 20
+  ammoCapacity: 10
+  _reloadTime: 2.5
+  _multiBulletShoot: 1
+  recoilX: -0.2
+  recoilY: 0.2
+  recoilZ: 0.035
+  snappiness: 10
+  returnSpeed: 4

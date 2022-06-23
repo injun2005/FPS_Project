@@ -12,12 +12,13 @@ public class UIMGR : MonoBehaviour
     public Button optionButton;
     public Button exitButton;
 
+    [SerializeField] private GameObject ObtionPanel;
 
     private void Start()
     {
         startButton?.onClick.AddListener(OnStartButtonClick);
-        optionButton?.onClick.AddListener(()=> OnButtonClick(optionButton.name));
-        exitButton?.onClick.AddListener(() => OnButtonClick(exitButton.name));
+        optionButton?.onClick.AddListener(OnObtionButtonClick);
+        exitButton?.onClick.AddListener(OnExitButton);
     }
 
     public void OnStartButtonClick()
@@ -32,5 +33,21 @@ public class UIMGR : MonoBehaviour
     void OnButtonClick(string buttonName)
     {
         Debug.Log(buttonName);
+    }
+    public void OnObtionButtonClick()
+    {
+        Time.timeScale = 0f;
+        ObtionPanel.SetActive(true);
+    }
+
+    public void OnOffPanelButton()
+    {
+        ObtionPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
+    public void OnExitButton()
+    {
+        Application.Quit();
     }
 }

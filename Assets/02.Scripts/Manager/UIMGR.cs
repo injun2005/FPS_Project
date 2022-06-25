@@ -13,6 +13,7 @@ public class UIMGR : MonoBehaviour
     public Button exitButton;
 
     [SerializeField] private GameObject ObtionPanel;
+    [SerializeField] private GameObject MenuPanel; 
 
     private void Start()
     {
@@ -24,6 +25,7 @@ public class UIMGR : MonoBehaviour
     public void OnStartButtonClick()
     {
         SceneManager.LoadScene("SampleScene");
+        Time.timeScale = 1f;
     }
     public void OnTitleButtonClick()
     {
@@ -42,12 +44,19 @@ public class UIMGR : MonoBehaviour
 
     public void OnOffPanelButton()
     {
-        ObtionPanel.SetActive(false);
-        Time.timeScale = 1f;
+        ObtionPanel?.SetActive(false);
+        MenuPanel?.SetActive(false);
     }
 
     public void OnExitButton()
     {
         Application.Quit();
     }
+
+    public void OnMenuPanel()
+    {
+        MenuPanel.SetActive(true);   
+    }
+
+
 }

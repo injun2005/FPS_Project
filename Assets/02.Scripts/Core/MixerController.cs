@@ -10,10 +10,10 @@ public class MixerController : MonoBehaviour
 
     public void SetEffectSound(float sliderValue)
     {
-        _audioMixer.SetFloat("EffectVolume", sliderValue);
+        _audioMixer.SetFloat("EffectVolume", Mathf.Log10(sliderValue) * 20f);
     }
     public void SetMusicSound(float sliderValue)
     {
-        _audioMixer.SetFloat("MusicVolume", sliderValue);
+        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20f);
     }
 }

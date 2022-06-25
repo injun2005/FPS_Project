@@ -21,9 +21,9 @@ public class WeaponSO : ScriptableObject
     public bool _multiBulletShoot = false;
 
     [Header("반동에 대한 값")]
-    [Range(-0.2f,0.2f)]public float recoilX; //x좌표 반동
-    [Range(0,0.2f)]public float recoilY; //y좌표 반동
-    [Range(0,0.2f)]public float recoilZ; //z좌표 반동
+    [Range(-1f,1f)]public float recoilX; //x좌표 반동
+    [Range(0,1f)]public float recoilY; //y좌표 반동
+    [Range(0,1f)]public float recoilZ; //z좌표 반동
     public float snappiness; // 반동 회복력
     public float returnSpeed; // 회복 속도
     public int GetBulletCountToSpawn()

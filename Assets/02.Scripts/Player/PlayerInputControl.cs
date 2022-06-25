@@ -14,6 +14,8 @@ public class PlayerInputControl : MonoBehaviour
     [field:SerializeField]private UnityEvent OffShoot;
     [field:SerializeField]private UnityEvent<bool> OnChangedNextWeapon;
     [field:SerializeField]private UnityEvent OnReloadKeyPress;
+    [field:SerializeField]private UnityEvent OnMenuButtonPress;
+    [field: SerializeField] private UnityEvent OnBackButtonPress;
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
@@ -23,6 +25,7 @@ public class PlayerInputControl : MonoBehaviour
         Fire();
         ChangedNextWeapon();
         InputReloadButton();
+        InputMenuButton();
     }
     private void ChangedNextWeapon()
     {
@@ -59,6 +62,29 @@ public class PlayerInputControl : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R))
         {
             OnReloadKeyPress?.Invoke();
+        }
+    }
+
+    private void InputMenuButton()
+    {
+        if (GameMGR.Instance.IsGameClear || GameMGR.Instance.IsGameOver) return;
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ResumeToGame();
+        }
+    }
+
+    public void ResumeToGame()
+    {
+        if (GameMGR.Instance.IsOpenPanel == false)
+        {
+            GameMGR.Instance.IsOpenPanel = true;
+            OnMenuButtonPress?.Invoke();
+        }
+        else if (GameMGR.Instance.IsOpenPanel == true)
+        {
+            GameMGR.Instance.IsOpenPanel = false;
+            OnBackButtonPress?.Invoke();
         }
     }
 }

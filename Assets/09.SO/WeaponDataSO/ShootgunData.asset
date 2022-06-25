@@ -27,8 +27,8 @@ MonoBehaviour:
   ammoCapacity: 10
   _reloadTime: 2.5
   _multiBulletShoot: 1
-  recoilX: -0.2
+  recoilX: -0.5
   recoilY: 0.2
-  recoilZ: 0.035
+  recoilZ: 0.01
   snappiness: 10
-  returnSpeed: 4
+  returnSpeed: 10

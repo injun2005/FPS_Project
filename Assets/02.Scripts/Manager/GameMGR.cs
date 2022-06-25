@@ -16,7 +16,9 @@ public class GameMGR : MonoBehaviour
     public UnityEvent OnGameOver;
     public UnityEvent OnGameClear;
     private bool _isGameClear =false;
+    public bool IsGameClear { get => _isGameClear; }
     private bool _isGameOver = false;
+    public bool IsGameOver { get => _isGameOver; }
     private static GameMGR _instance;
     public static GameMGR Instance
     {
@@ -32,6 +34,24 @@ public class GameMGR : MonoBehaviour
                 }
             }
            return _instance;
+        }
+    }
+
+    private bool isOpenPanel;
+    public bool IsOpenPanel {
+        get => isOpenPanel;
+        set {
+            isOpenPanel = value;
+            if (isOpenPanel == true)
+            {
+                Cursor.lockState = CursorLockMode.Confined;
+                Time.timeScale = 0f;
+            }       
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Time.timeScale = 1f;
+            }
         }
     }
 
@@ -68,7 +88,7 @@ public class GameMGR : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         _isGameOver = true;
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;    
         OnGameOver?.Invoke();
     }
     public void GameClear()

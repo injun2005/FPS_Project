@@ -8,12 +8,13 @@ using Random = UnityEngine.Random;
 public class Weapon : MonoBehaviour
 {
     public WeaponSO _weaponData;
-    public Transform firePos;
+    public Transform _firePos;
     public UnityEvent OnShootFeedback;
     public AudioClip shootSFX;
     public AudioClip reloadSFX;
     private Player _player;
     public ParticleSystem _muzzleFlash;
+    private Transform cameraTrm;
     public float spreadAmount = 1f;
     private bool isShootingDelay = false;
     private bool isShoot = false;
@@ -37,6 +38,7 @@ public class Weapon : MonoBehaviour
     public UnityEvent<int> OnChangedAmmo;
     private void Awake()
     {
+        cameraTrm = Camera.main.transform;
         _ammo = _weaponData.ammoCapacity;
         _player = GameObject.Find("Player").GetComponent<Player>();
         _recoilCamera = GameObject.Find("Main Camera").GetComponent<FirstPersonCamera>();
@@ -87,9 +89,9 @@ public class Weapon : MonoBehaviour
     }
     public virtual void ShootBullet()
     {
-        OnShootFeedback?.Invoke();
         SpawnMuzzleEffect();
         ShotBulletRay();
+        OnShootFeedback?.Invoke();
     }
 
     private void SpawnMuzzleEffect()
@@ -109,11 +111,11 @@ public class Weapon : MonoBehaviour
     protected virtual void ShotBulletRay()
     {
         RaycastHit hit;
-        Vector3 shootDirection = Camera.main.transform.forward;
+        Vector3 shootDirection = cameraTrm.forward;
         shootDirection.x += Random.Range(-spreadAmount*1.5f, spreadAmount*1.5f) ;
         shootDirection.y += Random.Range(-spreadAmount/2, spreadAmount/2);
-        Debug.DrawRay(Camera.main.transform.position, shootDirection * _weaponData._attackRange, Color.red);
-        if (Physics.Raycast(Camera.main.transform.position, shootDirection, out hit, _weaponData._attackRange))
+        Debug.DrawRay(_firePos.position, shootDirection * _weaponData._attackRange, Color.red, 1.5f);
+        if (Physics.Raycast(_firePos.position, shootDirection, out hit, _weaponData._attackRange))
         {
             IHittable hittable = hit.transform.GetComponent<IHittable>();
             hittable?.GetHit(damage: _weaponData._damage, hitPos: hit.point);

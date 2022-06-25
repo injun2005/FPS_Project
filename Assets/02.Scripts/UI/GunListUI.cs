@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Linq;
 using System;
-using UnityEditor.Events;
+using UnityEngine.Events;
 public class GunListUI : MonoBehaviour
 {
     [SerializeField] private GunPanel _gunPanelPrefab;

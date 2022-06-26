@@ -114,8 +114,8 @@ public class Weapon : MonoBehaviour
         Vector3 shootDirection = cameraTrm.forward;
         shootDirection.x += Random.Range(-spreadAmount*1.5f, spreadAmount*1.5f) ;
         shootDirection.y += Random.Range(-spreadAmount/2, spreadAmount/2);
-        Debug.DrawRay(_firePos.position, shootDirection * _weaponData._attackRange, Color.red, 1.5f);
-        if (Physics.Raycast(_firePos.position, shootDirection, out hit, _weaponData._attackRange))
+        Debug.DrawRay(cameraTrm.position, shootDirection * _weaponData._attackRange, Color.red, 1.5f);
+        if (Physics.Raycast(cameraTrm.position, shootDirection, out hit, _weaponData._attackRange))
         {
             IHittable hittable = hit.transform.GetComponent<IHittable>();
             hittable?.GetHit(damage: _weaponData._damage, hitPos: hit.point);

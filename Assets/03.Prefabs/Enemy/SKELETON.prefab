@@ -1539,6 +1539,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6184851734671413944}
+        m_TargetAssemblyTypeName: AgentSound, Assembly-CSharp
+        m_MethodName: PlayHitSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDieFeedback:
     m_PersistentCalls:
       m_Calls:
@@ -2681,7 +2693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pitchRandomness: 0.2
-  _hitClip: {fileID: 0}
+  _hitClip: {fileID: 8300000, guid: 8c1237bb634f4d444810cb39639b57b0, type: 3}
   _deathClip: {fileID: 8300000, guid: 8ce3a4a1f93cca14f87039be23f5f4dd, type: 3}
   _voiceLineClip: {fileID: 0}
   _attackSound: {fileID: 0}

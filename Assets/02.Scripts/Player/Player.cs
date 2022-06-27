@@ -21,7 +21,7 @@ public class Player : MonoBehaviour, IHittable
     private Image hpBar;
     public float currHp;
     public int maxWeapons;
-
+    public UnityEvent OnHitFeedback;
     IEnumerator Start()
     {
         currHp = iniHp;
@@ -59,14 +59,6 @@ public class Player : MonoBehaviour, IHittable
 
     private void PlayerDie()
     {
-        Debug.Log("PlayerDie");
-        //GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
-
-        //foreach(GameObject monster in monsters)
-        //{
-        //    monster.SendMessage("OnPlayerDie", SendMessageOptions.DontRequireReceiver);
-        //}
-
         GameMGR.Instance.GameOver(); 
     }
     public void DisPlayHP()
@@ -77,7 +69,8 @@ public class Player : MonoBehaviour, IHittable
     public void GetHit(int damage, Vector3 hitPos)
     {
         currHp -= damage;
-        if(currHp <= 0)
+        OnHitFeedback?.Invoke();
+        if (currHp <= 0)
         {
             PlayerDie();
         }

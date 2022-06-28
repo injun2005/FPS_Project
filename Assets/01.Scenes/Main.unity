@@ -985,7 +985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SF vs RPG
+  m_text: SF vs Fantasy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1287,6 +1287,7 @@ MonoBehaviour:
   optionButton: {fileID: 354319299}
   exitButton: {fileID: 494616232}
   ObtionPanel: {fileID: 1061161040}
+  MenuPanel: {fileID: 0}
 --- !u!114 &808586786
 MonoBehaviour:
   m_ObjectHideFlags: 0
